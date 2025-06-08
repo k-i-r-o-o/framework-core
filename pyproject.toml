@@ -1,15 +1,16 @@
-[project]
+[tool.poetry]
 name = "framework-core"
 version = "0.1.0"
 description = "core framework"
-authors = [
-    {name = "k-i-r-o-o",email = "raunakc6@gmail.com"}
-]
+authors = ["k-i-r-o-o <raunakc6@gmail.com>"]
 readme = "README.md"
-requires-python = ">=3.12,<3.13"
-dependencies = [
-]
 
+[tool.poetry.dependencies]
+python = ">=3.12,<3.13"
+
+# 👇 This should be an array of tables
+[[tool.poetry.packages]]
+include = "core"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
