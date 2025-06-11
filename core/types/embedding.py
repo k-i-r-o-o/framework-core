@@ -1,7 +1,7 @@
-# core/models/embedding.py
 from dataclasses import dataclass
+from typing import List
 
 @dataclass
 class Embedding:
-    vector: list
-    metadata: dict
+    vector: List[float]
+    model: str
