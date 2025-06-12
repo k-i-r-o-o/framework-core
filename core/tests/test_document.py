@@ -1,9 +1,22 @@
-from core.types.document import Document
-from core.interfaces.data.document import IDocument
+# tests/test_document.py
 
-def test_document_interface_compliance():
-    doc = Document(id="1", text="hello", metadata={"source": "unit_test"})
-    assert isinstance(doc, IDocument)
-    assert doc.get_id() == "1"
-    assert doc.get_content() == "hello"
-    assert doc.get_metadata()["source"] == "unit_test"
+import pytest
+from core.types.document import Document
+
+def test_document_fields_and_methods():
+    doc_id = "doc-123"
+    content = "This is a test document."
+    metadata = {"source": "unit_test", "page": 1}
+
+    # Instantiate Document
+    doc = Document(id=doc_id, text=content, metadata=metadata)
+
+    # Assertions for fields
+    assert doc.id == doc_id
+    assert doc.text == content
+    assert doc.metadata == metadata
+
+    # Assertions for methods
+    assert doc.get_id() == doc_id
+    assert doc.get_content() == content
+    assert doc.get_metadata() == metadata

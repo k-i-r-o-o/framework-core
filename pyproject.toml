@@ -9,6 +9,7 @@ readme = "README.md"
 python = ">=3.12,<3.13"
 
 # 👇 This should be an array of tables
+pydantic = "^2.11.5"
 [[tool.poetry.packages]]
 include = "core"
 

@@ -1,8 +1,17 @@
 # core/interfaces/data/document.py
-from typing import Protocol, Dict, Any, runtime_checkable
 
-@runtime_checkable
-class IDocument(Protocol):
-    def get_id(self) -> str: ...
-    def get_content(self) -> str: ...
-    def get_metadata(self) -> Dict[str, Any]: ...
+from abc import ABC, abstractmethod
+from typing import Dict, Any
+
+class IDocument(ABC):
+    @abstractmethod
+    def get_id(self) -> str:
+        pass
+
+    @abstractmethod
+    def get_content(self) -> str:
+        pass
+
+    @abstractmethod
+    def get_metadata(self) -> Dict[str, Any]:
+        pass
