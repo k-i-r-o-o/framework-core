@@ -1,7 +1,19 @@
-from typing import Protocol, List
-from core.types.document import Document
+from abc import ABC, abstractmethod
+from typing import List, Dict, Any
 
-class IVectorStore(Protocol):
-    def add_documents(self, documents: List[Document]) -> None: ...
-    def query(self, query: str, top_k: int = 5) -> List[Document]: ...
-    def delete(self, doc_ids: List[str]) -> None: ...
+class IVectorStore(ABC):
+    @abstractmethod
+    def add_document(self, document: Dict[str, Any]) -> None:
+        pass
+
+    @abstractmethod
+    def search(self, query: str, top_k: int = 5) -> List[Dict[str, Any]]:
+        pass
+
+    @abstractmethod
+    def delete(self, doc_id: str) -> None:
+        pass
+
+    @abstractmethod
+    def delete_all(self) -> None:
+        pass
